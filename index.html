@@ -1,1 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moonnet DevOps - Bilingual AI Automation for UAE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="main.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        :root {
+            --navy: #0A1F44;
+            --gold: #D4AF37;
+            --white: #FFFFFF;
+            --light-gray: #F5F7FA;
+            --dark-gray: #2C3E50;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--dark-gray);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: var(--navy);
+            color: var(--white);
+            padding: 0.75rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        /* Logo link - stable flex container */
+        .logo-link {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .logo-link:hover {
+            opacity: 0.85;
+        }
+
+        /* Logo image - responsive with max-width */
+        .logo-img {
+            max-width: 120px;
+            height: auto;
+            display: block;
+            transition: transform 0.3s ease;
+            background: var(--white);
+            padding: 0.5rem;
+            border-radius: 6px;
+        }
+
+        .logo-link:hover .logo-img {
+            transform: scale(1.05);
+        }
+
+        .logo-text {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--gold);
+            white-space: nowrap;
+        }
+
+        .language-toggle {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .lang-btn {
+            background: var(--gold);
+            color: var(--navy);
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .lang-btn.active {
+            background: var(--white);
+            color: var(--navy);
+        }
+
+        .lang-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--navy) 0%, #0F2E5C 100%);
+            color: var(--white);
+            padding: 4rem 2rem;
+            text-align: center;
+            min-height: 600px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            color: var(--white);
+        }
+
+        .hero .subheading {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: var(--gold);
+            color: var(--white);
+        }
+
+        .cta-primary {
+            background: var(--gold);
+            color: var(--navy);
+            border: none;
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-primary:hover {
+            background: #F0C856;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 16px rgba(212, 175, 55, 0.3);
+        }
+
+        /* Offer Section */
+        .offer {
+            padding: 4rem 2rem;
+            background: var(--light-gray);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--navy);
+        }
+
+        .offer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .offer-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border-left: 4px solid var(--gold);
+        }
+
+        .offer-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+
+        .offer-card h3 {
+            color: var(--navy);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .offer-card p {
+            color: var(--dark-gray);
+            line-height: 1.8;
+        }
+
+        /* Demo Bot Section */
+        .demo {
+            padding: 4rem 2rem;
+            background: var(--white);
+            text-align: center;
+        }
+
+        .demo-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .demo h2 {
+            font-size: 2.5rem;
+            color: var(--navy);
+            margin-bottom: 2rem;
+        }
+
+        .demo p {
+            color: var(--dark-gray);
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        .demo-button {
+            background: #25D366;
+            color: var(--white);
+            border: none;
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+
+        .demo-button:hover {
+            background: #1FAA51;
+            transform: translateY(-3px);
+        }
+
+        /* ROI Wins Section */
+        .roi {
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, var(--navy) 0%, #0F2E5C 100%);
+            color: var(--white);
+        }
+
+        .roi h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--white);
+        }
+
+        .roi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .roi-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 8px;
+            border: 2px solid var(--gold);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .roi-card:hover {
+            background: rgba(212, 175, 55, 0.1);
+            transform: scale(1.05);
+        }
+
+        .roi-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .roi-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--gold);
+        }
+
+        .roi-card p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 4rem 2rem;
+            background: var(--light-gray);
+        }
+
+        .pricing h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--navy);
+            margin-bottom: 3rem;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .pricing-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            text-align: center;
+            border: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .pricing-card.featured {
+            border-color: var(--gold);
+            transform: scale(1.05);
+        }
+
+        .pricing-card h3 {
+            color: var(--navy);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .price {
+            font-size: 2.5rem;
+            color: var(--gold);
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .pricing-card ul {
+            list-style: none;
+            margin: 1.5rem 0;
+            text-align: left;
+        }
+
+        .pricing-card li {
+            padding: 0.5rem 0;
+            color: var(--dark-gray);
+            border-bottom: 1px solid #eee;
+        }
+
+        .pricing-card li:before {
+            content: "✓ ";
+            color: var(--gold);
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 4rem 2rem;
+            background: var(--navy);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 2rem auto;
+        }
+
+        .contact-method {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 8px;
+            border: 2px solid var(--gold);
+        }
+
+        .contact-method h3 {
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        .contact-method p {
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .contact-method a {
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .contact-method a:hover {
+            text-decoration: underline;
+        }
+
+        /* About Section */
+        .about {
+            padding: 4rem 2rem;
+            background: var(--light-gray);
+        }
+
+        .about h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--navy);
+            margin-bottom: 2rem;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border-left: 4px solid var(--gold);
+        }
+
+        .about-content p {
+            color: var(--dark-gray);
+            margin-bottom: 1rem;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--navy);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+            border-top: 3px solid var(--gold);
+        }
+
+        footer p {
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        footer a {
+            color: var(--gold);
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        footer a:hover {
+            opacity: 0.8;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .logo-img {
+                max-width: 100px;
+                height: auto;
+            }
+
+            .logo-text {
+                font-size: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero .subheading {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+
+            .offer-grid, .roi-grid, .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                font-size: 14px;
+            }
+
+            header {
+                padding: 0.5rem 1rem;
+            }
+
+            .logo-img {
+                max-width: 80px;
+                height: auto;
+            }
+
+            .logo-text {
+                font-size: 0.9rem;
+            }
+
+            .hero {
+                padding: 2rem 1rem;
+                min-height: 400px;
+            }
+
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+
+            .cta-primary {
+                padding: 0.8rem 1.5rem;
+                font-size: 1rem;
+                width: 100%;
+            }
+        }
+
+        html[dir="rtl"] {
+            direction: rtl;
+            text-align: right;
+        }
+
+        html[dir="rtl"] header {
+            flex-direction: row-reverse;
+        }
+
+        html[dir="rtl"] .logo-container {
+            flex-direction: row-reverse;
+        }
+
+        html[dir="rtl"] .logo-link {
+            flex-direction: row-reverse;
+        }
+
+        html[dir="rtl"] .offer-card,
+        html[dir="rtl"] .about-content {
+            border-left: none;
+            border-right: 4px solid var(--gold);
+        }
+
+        html[dir="rtl"] .pricing-card ul {
+            text-align: right;
+        }
+
+        html[dir="rtl"] .pricing-card li:before {
+            margin-right: 0;
+            margin-left: 0.5rem;
+        }
+    </style>
+
+    <!-- Favicon (32x32 PNG) -->
+    <link rel="icon" type="image/png" sizes="32x32" href="moonnet-favicon.png">
+
+    <!-- iOS / mobile home screen icon (uses same file if large enough) -->
+    <link rel="apple-touch-icon" sizes="180x180" href="moonnet-favicon.png">
+
+    <!-- Theme color for mobile browser UI -->
+    <meta name="theme-color" content="#0A1F44">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo-container">
+            <a href="index.html" class="logo-link" aria-label="Moonnet DevOps home">
+                <img
+                    src="moonnet-logo.png"
+                    alt="Moonnet DevOps logo"
+                    class="logo-img"
+                    loading="lazy"
+                    decoding="async"
+                    width="560"
+                />
+                <span class="logo-text">Moonnet</span>
+            </a>
+        </div>
+
+        <div class="language-toggle">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="ar">العربية</button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1 class="en">🚀 Bilingual AI Automation for UAE Businesses</h1>
+        <h1 class="ar hidden">🚀 أتمتة ذكية ثنائية اللغة للشركات في الإمارات</h1>
+        
+        <p class="subheading en">30-Day Pilot – Only 2,500 AED</p>
+        <p class="subheading ar hidden">تجربة لمدة 30 يومًا – فقط 2,500 درهم</p>
+        
+        <a href="https://wa.me/971508215539" class="cta-primary en">Claim Your Slot</a>
+        <a href="https://wa.me/971508215539" class="cta-primary ar hidden">احجز مكانك</a>
+    </section>
+
+    <!-- Offer Section -->
+    <section class="offer">
+        <h2 class="section-title en">What's Included in Your Pilot</h2>
+        <h2 class="section-title ar hidden">ما يتضمنه برنامج التجربة الخاص بك</h2>
+
+        <div class="offer-grid">
+            <div class="offer-card">
+                <h3 class="en">📱 Bilingual Chatbot</h3>
+                <h3 class="ar hidden">📱 روبوت محادثة ثنائي اللغة</h3>
+                <p class="en">English & Arabic support for customer interactions</p>
+                <p class="ar hidden">دعم إنجليزي وعربي للتفاعل مع العملاء</p>
+            </div>
+
+            <div class="offer-card">
+                <h3 class="en">📋 Smart Booking Form</h3>
+                <h3 class="ar hidden">📋 نموذج حجز ذكي</h3>
+                <p class="en">Automated appointment scheduling and confirmation</p>
+                <p class="ar hidden">جدولة المواعيد والتأكيد الآلي</p>
+            </div>
+
+            <div class="offer-card">
+                <h3 class="en">🗂️ CRM Integration</h3>
+                <h3 class="ar hidden">🗂️ دمج إدارة علاقات العملاء</h3>
+                <p class="en">Automatic lead logging and data synchronization</p>
+                <p class="ar hidden">تسجيل العملاء المحتملين والمزامنة التلقائية</p>
+            </div>
+
+            <div class="offer-card">
+                <h3 class="en">📊 KPI Dashboard</h3>
+                <h3 class="ar hidden">📊 لوحة مؤشرات الأداء</h3>
+                <p class="en">Real-time metrics and performance tracking</p>
+                <p class="ar hidden">قياس الأداء والتتبع في الوقت الفعلي</p>
+            </div>
+
+            <div class="offer-card">
+                <h3 class="en">⚡ Same-Day Activation</h3>
+                <h3 class="ar hidden">⚡ التفعيل الفوري</h3>
+                <p class="en">Go live within 24 hours of purchase</p>
+                <p class="ar hidden">الذهاب مباشرة في غضون 24 ساعة من الشراء</p>
+            </div>
+
+            <div class="offer-card">
+                <h3 class="en">🎓 Training & Support</h3>
+                <h3 class="ar hidden">🎓 التدريب والدعم</h3>
+                <p class="en">Full team onboarding and ongoing assistance</p>
+                <p class="ar hidden">تدريب كامل الفريق والمساعدة المستمرة</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Bot Section -->
+    <section class="demo">
+        <div class="demo-content">
+            <h2 class="en">Meet Fara 7B</h2>
+            <h2 class="ar hidden">قابل فارة 7B</h2>
+            
+            <p class="en">Experience our AI-powered bilingual chatbot in action. Chat with Fara directly on WhatsApp.</p>
+            <p class="ar hidden">جرب روبوتنا الذكي ثنائي اللغة المدعوم بالذكاء الاصطناعي. تحدث مع فارة مباشرة على واتساب.</p>
+            
+            <a href="https://wa.me/971508215539" class="demo-button en">💬 Chat with Fara on WhatsApp</a>
+            <a href="https://wa.me/971508215539" class="demo-button ar hidden">💬 تحدث مع فارة على واتساب</a>
+        </div>
+    </section>
+
+    <!-- ROI Wins Section -->
+    <section class="roi">
+        <h2 class="en">Proven ROI Wins</h2>
+        <h2 class="ar hidden">مكاسب العائد الثابتة</h2>
+
+        <div class="roi-grid">
+            <div class="roi-card">
+                <div class="roi-icon">⏱️</div>
+                <h3 class="en">75% Faster Bookings</h3>
+                <h3 class="ar hidden">حجوزات أسرع بنسبة 75٪</h3>
+                <p class="en">Cut booking time from hours to minutes</p>
+                <p class="ar hidden">اخفض وقت الحجز من ساعات إلى دقائق</p>
+            </div>
+
+            <div class="roi-card">
+                <div class="roi-icon">🎯</div>
+                <h3 class="en">Instant Lead Qualification</h3>
+                <h3 class="ar hidden">تأهيل العملاء الفوري</h3>
+                <p class="en">Qualify and score leads automatically</p>
+                <p class="ar hidden">تأهيل وتسجيل العملاء المحتملين تلقائيًا</p>
+            </div>
+
+            <div class="roi-card">
+                <div class="roi-icon">📈</div>
+                <h3 class="en">ROI in 3 Weeks</h3>
+                <h3 class="ar hidden">العائد خلال 3 أسابيع</h3>
+                <p class="en">See measurable results and payback fast</p>
+                <p class="ar hidden">شاهد نتائج قابلة للقياس والسداد السريع</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing">
+        <h2 class="en">Simple, Transparent Pricing</h2>
+        <h2 class="ar hidden">تسعير بسيط وشفاف</h2>
+
+        <div class="pricing-grid">
+            <div class="pricing-card featured">
+                <h3 class="en">30-Day Pilot</h3>
+                <h3 class="ar hidden">تجربة 30 يوم</h3>
+                <div class="price">2,500 <span class="en">AED</span><span class="ar hidden">درهم</span></div>
+                <ul class="en">
+                    <li>Full feature access</li>
+                    <li>Bilingual setup</li>
+                    <li>24/7 support</li>
+                    <li>Performance reports</li>
+                </ul>
+                <ul class="ar hidden">
+                    <li>الوصول الكامل للميزات</li>
+                    <li>إعداد ثنائي اللغة</li>
+                    <li>دعم على مدار الساعة</li>
+                    <li>تقارير الأداء</li>
+                </ul>
+                <a href="https://wa.me/971508215539" class="cta-primary en">Start Pilot</a>
+                <a href="https://wa.me/971508215539" class="cta-primary ar hidden">ابدأ التجربة</a>
+            </div>
+
+            <div class="pricing-card">
+                <h3 class="en">License Model</h3>
+                <h3 class="ar hidden">نموذج الترخيص</h3>
+                <div class="price">Custom</div>
+                <ul class="en">
+                    <li>Monthly subscription</li>
+                    <li>Unlimited usage</li>
+                    <li>Premium support</li>
+                    <li>Custom integrations</li>
+                </ul>
+                <ul class="ar hidden">
+                    <li>الاشتراك الشهري</li>
+                    <li>استخدام غير محدود</li>
+                    <li>دعم متميز</li>
+                    <li>تكاملات مخصصة</li>
+                </ul>
+                <a href="https://wa.me/971508215539" class="cta-primary en">Contact Sales</a>
+                <a href="https://wa.me/971508215539" class="cta-primary ar hidden">تواصل معنا</a>
+            </div>
+
+            <div class="pricing-card">
+                <h3 class="en">Buy-Out License</h3>
+                <h3 class="ar hidden">ترخيص الشراء</h3>
+                <div class="price">Custom</div>
+                <ul class="en">
+                    <li>One-time payment</li>
+                    <li>Perpetual license</li>
+                    <li>Dedicated support</li>
+                    <li>White-label option</li>
+                </ul>
+                <ul class="ar hidden">
+                    <li>دفعة لمرة واحدة</li>
+                    <li>ترخيص دائم</li>
+                    <li>دعم مخصص</li>
+                    <li>خيار العلامة البيضاء</li>
+                </ul>
+                <a href="https://wa.me/971508215539" class="cta-primary en">Learn More</a>
+                <a href="https://wa.me/971508215539" class="cta-primary ar hidden">معرفة المزيد</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact">
+        <h2 class="en">Get in Touch</h2>
+        <h2 class="ar hidden">تواصل معنا</h2>
+
+        <div class="contact-methods">
+            <div class="contact-method">
+                <h3 class="en">💬 WhatsApp</h3>
+                <h3 class="ar hidden">💬 واتساب</h3>
+                <p class="en">Quick response time</p>
+                <p class="ar hidden">وقت استجابة سريع</p>
+                <a href="https://wa.me/971508215539" class="en">Chat Now</a>
+                <a href="https://wa.me/971508215539" class="ar hidden">ابدأ المحادثة</a>
+            </div>
+
+            <div class="contact-method">
+                <h3 class="en">📧 Email</h3>
+                <h3 class="ar hidden">📧 البريد الإلكتروني</h3>
+                <p class="en">Detailed inquiries</p>
+                <p class="ar hidden">الاستفسارات التفصيلية</p>
+                <a href="mailto:hello@moonnet.dev">hello@moonnet.dev</a>
+            </div>
+
+            <div class="contact-method">
+                <h3 class="en">📞 Callback</h3>
+                <h3 class="ar hidden">📞 استدعاء عودة</h3>
+                <p class="en">Schedule a call</p>
+                <p class="ar hidden">جدول مكالمة</p>
+                <a href="https://wa.me/971508215539" class="en">Request Callback</a>
+                <a href="https://wa.me/971508215539" class="ar hidden">اطلب استدعاء</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about">
+        <h2 class="en">About Moonnet DevOps</h2>
+        <h2 class="ar hidden">عن Moonnet DevOps</h2>
+
+        <div class="about-content">
+            <p class="en">
+                <strong>Moonnet DevOps</strong> is a boutique AI automation company based in the UAE, specializing in bilingual solutions designed specifically for businesses in the region. We partner with enterprises to transform customer interactions, streamline operations, and drive measurable ROI through intelligent automation.
+            </p>
+            <p class="ar hidden">
+                <strong>Moonnet DevOps</strong> هي شركة أتمتة ذكاء اصطناعي متخصصة في الإمارات، متخصصة في حلول ثنائية اللغة مصممة خصيصًا للشركات في المنطقة. نحن نتشارك مع المؤسسات لتحويل التفاعلات مع العملاء وتبسيط العمليات وتحقيق عائد استثماري قابل للقياس من خلال الأتمتة الذكية.
+            </p>
+            
+            <p class="en">
+                With proven expertise in AI, NLP, and enterprise integration, we deliver solutions that work seamlessly in both Arabic and English, addressing the unique needs of the UAE market.
+            </p>
+            <p class="ar hidden">
+                مع خبرة مثبتة في الذكاء الاصطناعي ومعالجة اللغات الطبيعية والتكامل على مستوى المؤسسات، نقدم حلولًا تعمل بسلاسة باللغتين العربية والإنجليزية، معالجة الاحتياجات الفريدة لسوق الإمارات.
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p class="en">&copy; 2025 Moonnet DevOps. All rights reserved. | <a href="mailto:hello@moonnet.dev">hello@moonnet.dev</a></p>
+        <p class="ar hidden">&copy; 2025 Moonnet DevOps. جميع الحقوق محفوظة. | <a href="mailto:hello@moonnet.dev">hello@moonnet.dev</a></p>
+    </footer>
+
+    <!-- Load external JavaScript -->
+    <script src="app.js"></script>
+</body>
+</html>
