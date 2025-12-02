@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoonNet DevOps - Icon Pack Example</title>
+
+    <!-- Recommended favicon tags for modern browsers -->
+    <!-- SVG favicon (modern browsers) -->
+    <link rel="icon" type="image/svg+xml" href="icons/favicon.svg">
+    
+    <!-- PNG fallback for older browsers -->
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/generated/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="icons/generated/favicon-16x16.png">
+    
+    <!-- Apple Touch Icon for iOS home screen -->
+    <link rel="apple-touch-icon" sizes="180x180" href="icons/generated/apple-touch-icon.png">
+    
+    <!-- Web App Manifest for PWA support -->
+    <link rel="manifest" href="site.webmanifest">
+    
+    <!-- Theme color for mobile browser UI -->
+    <meta name="theme-color" content="#0A1F44">
+    
+    <!-- Microsoft Tile (optional) -->
+    <meta name="msapplication-TileColor" content="#0A1F44">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --navy: #0A1F44;
+            --gold: #D4AF37;
+            --white: #FFFFFF;
+            --light-gray: #F5F7FA;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Example Header */
+        header {
+            background: var(--navy);
+            color: var(--white);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .logo-link {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo-link:hover {
+            opacity: 0.9;
+        }
+
+        /* Logo at 80px height as specified */
+        .logo-img {
+            height: 80px;
+            width: auto;
+        }
+
+        nav {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--gold);
+        }
+
+        /* Main content */
+        main {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        h1 {
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            color: var(--navy);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--gold);
+            padding-bottom: 0.5rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        code {
+            background: var(--light-gray);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-family: 'Consolas', 'Monaco', monospace;
+        }
+
+        pre {
+            background: var(--navy);
+            color: var(--white);
+            padding: 1rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+
+        pre code {
+            background: none;
+            padding: 0;
+            color: inherit;
+        }
+
+        .icon-preview {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin: 1rem 0;
+            padding: 1rem;
+            background: var(--light-gray);
+            border-radius: 8px;
+        }
+
+        .icon-item {
+            text-align: center;
+        }
+
+        .icon-item img {
+            border: 1px solid #ddd;
+            background: white;
+            padding: 0.5rem;
+            border-radius: 4px;
+        }
+
+        .icon-item p {
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Example Header with logo at 80px height -->
+    <header>
+        <a href="index.html" class="logo-link" aria-label="Moonnet DevOps home">
+            <img 
+                src="icons/logo.svg" 
+                alt="Moonnet DevOps" 
+                class="logo-img"
+                height="80"
+            >
+        </a>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Services</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <h1>MoonNet Icon Pack - Usage Example</h1>
+        
+        <p>
+            This page demonstrates the recommended way to implement favicons and the header logo 
+            for the MoonNet DevOps site.
+        </p>
+
+        <h2>Icon Preview</h2>
+        
+        <div class="icon-preview">
+            <div class="icon-item">
+                <img src="icons/logo.svg" alt="Logo SVG" height="60">
+                <p>logo.svg</p>
+            </div>
+            <div class="icon-item">
+                <img src="icons/favicon.svg" alt="Favicon SVG" height="60">
+                <p>favicon.svg</p>
+            </div>
+            <div class="icon-item">
+                <img src="icons/apple-touch-icon.svg" alt="Apple Touch Icon SVG" height="60">
+                <p>apple-touch-icon.svg</p>
+            </div>
+        </div>
+
+        <h2>Head Tags for Favicons</h2>
+        
+        <p>Add these tags to your <code>&lt;head&gt;</code> section:</p>
+        
+        <pre><code>&lt;!-- SVG favicon (modern browsers) --&gt;
+&lt;link rel="icon" type="image/svg+xml" href="icons/favicon.svg"&gt;
+
+&lt;!-- PNG fallback for older browsers --&gt;
+&lt;link rel="icon" type="image/png" sizes="32x32" href="icons/generated/favicon-32x32.png"&gt;
+&lt;link rel="icon" type="image/png" sizes="16x16" href="icons/generated/favicon-16x16.png"&gt;
+
+&lt;!-- Apple Touch Icon for iOS home screen --&gt;
+&lt;link rel="apple-touch-icon" sizes="180x180" href="icons/generated/apple-touch-icon.png"&gt;
+
+&lt;!-- Web App Manifest for PWA support --&gt;
+&lt;link rel="manifest" href="site.webmanifest"&gt;
+
+&lt;!-- Theme color for mobile browser UI --&gt;
+&lt;meta name="theme-color" content="#0A1F44"&gt;</code></pre>
+
+        <h2>Header Logo Implementation</h2>
+        
+        <p>The header logo should be displayed at <strong>80px height</strong> by default:</p>
+        
+        <pre><code>&lt;header&gt;
+    &lt;a href="index.html" class="logo-link" aria-label="Moonnet DevOps home"&gt;
+        &lt;img 
+            src="icons/logo.svg" 
+            alt="Moonnet DevOps" 
+            class="logo-img"
+            height="80"
+        &gt;
+    &lt;/a&gt;
+&lt;/header&gt;</code></pre>
+
+        <h2>Generating Raster Icons</h2>
+        
+        <p>Run the build script to generate PNG, ICO, and WebP variants:</p>
+        
+        <pre><code>cd icons
+./make_icons.sh</code></pre>
+        
+        <p>
+            The script requires <code>ImageMagick</code> and optionally uses 
+            <code>pngquant</code> for optimization and <code>cwebp</code> for WebP conversion.
+        </p>
+
+        <h2>Notes</h2>
+        
+        <ul>
+            <li>The Apple Touch Icon uses a navy (#082a4b) background for iOS compatibility</li>
+            <li>SVG icons are preferred for modern browsers (crisp at any resolution)</li>
+            <li>The logo height of 80px is recommended but can be adjusted for specific layouts</li>
+            <li>For a light-theme variant, please request a separate icon set</li>
+        </ul>
+    </main>
+</body>
+</html>
