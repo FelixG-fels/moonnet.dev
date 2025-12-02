@@ -580,14 +580,31 @@
         }
     </style>
 
-    <!-- Favicon (32x32 PNG) -->
-    <link rel="icon" type="image/png" sizes="32x32" href="moonnet-favicon.png">
+    <!-- Favicon variants for different sizes -->
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 
-    <!-- iOS / mobile home screen icon (uses same file if large enough) -->
-    <link rel="apple-touch-icon" sizes="180x180" href="moonnet-favicon.png">
+    <!-- iOS / mobile home screen icon (180x180) -->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+    <!-- Web Manifest for PWA support -->
+    <link rel="manifest" href="site.webmanifest">
 
     <!-- Theme color for mobile browser UI -->
     <meta name="theme-color" content="#0A1F44">
+
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://moonnet.dev/">
+    <meta property="og:title" content="Moonnet DevOps - Bilingual AI Automation for UAE">
+    <meta property="og:description" content="30-Day Pilot for bilingual AI chatbot, booking form, CRM integration and more. Only 2,500 AED.">
+    <meta property="og:image" content="https://moonnet.dev/og-image.png">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Moonnet DevOps - Bilingual AI Automation for UAE">
+    <meta name="twitter:description" content="30-Day Pilot for bilingual AI chatbot, booking form, CRM integration and more. Only 2,500 AED.">
+    <meta name="twitter:image" content="https://moonnet.dev/og-image.png">
 </head>
 <body>
     <!-- Header -->
@@ -595,12 +612,14 @@
         <div class="logo-container">
             <a href="index.html" class="logo-link" aria-label="Moonnet DevOps home">
                 <img
-                    src="moonnet-logo.svg.png"
-                    alt="Moonnet DevOps logo"
+                    src="moonnet-logo.png"
+                    srcset="moonnet-logo.png 1x, moonnet-logo@2x.png 2x"
+                    alt="Moonnet logo"
                     class="logo-img"
                     loading="lazy"
                     decoding="async"
                     width="560"
+                    height="560"
                 />
                 <span class="logo-text">Moonnet</span>
             </a>
