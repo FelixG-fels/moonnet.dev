@@ -91,12 +91,21 @@ fi
 # Create zip archive
 if command -v zip &> /dev/null; then
     cd "$OUTPUT_DIR"
-    zip -q moonnet-icons.zip *.png *.ico site.webmanifest 2>/dev/null || \
-    zip -q moonnet-icons.zip *.png *.ico 2>/dev/null || true
     
-    # Include WebP files if they exist
+    # Build file list for zip
+    ZIP_FILES=""
+    for f in *.png *.ico; do
+        [ -f "$f" ] && ZIP_FILES="$ZIP_FILES $f"
+    done
+    [ -f "site.webmanifest" ] && ZIP_FILES="$ZIP_FILES site.webmanifest"
+    
+    if [ -n "$ZIP_FILES" ]; then
+        zip -q moonnet-icons.zip $ZIP_FILES
+    fi
+    
+    # Add WebP files if they exist
     if ls *.webp 1> /dev/null 2>&1; then
-        zip -q moonnet-icons.zip *.webp
+        zip -qu moonnet-icons.zip *.webp
     fi
     cd "$SCRIPT_DIR"
     echo "  Created: $OUTPUT_DIR/moonnet-icons.zip"
