@@ -12,7 +12,7 @@ We take security seriously at Moonnet DevOps. If you discover a security vulnera
 
 ### How to Report
 
-1. **Email**: Send details to [hello@moonnet.dev](mailto:hello@moonnet.dev)
+1. **Email**: Send details to [felsmoonet@moonnet.dev](mailto:felsmoonet@moonnet.dev)
 2. **Subject Line**: Use "Security Vulnerability Report" as the subject
 
 ### What to Include
