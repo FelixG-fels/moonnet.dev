@@ -113,10 +113,8 @@ if [ -f "$REPO_ROOT/site.webmanifest" ]; then
     cp "$REPO_ROOT/site.webmanifest" "$OUTPUT_DIR/site.webmanifest"
 fi
 
-# Create zip archive
-cd "$OUTPUT_DIR"
-zip -r "$REPO_ROOT/moonnet-icons.zip" . -x "*.zip" > /dev/null
-cd "$SCRIPT_DIR"
+# Create zip archive (use subshell to avoid changing directory state)
+(cd "$OUTPUT_DIR" && zip -r "$REPO_ROOT/moonnet-icons.zip" . -x "*.zip" > /dev/null)
 
 echo ""
 echo "✅ Done! Generated files:"
