@@ -58,7 +58,7 @@ Contributions are welcome! Please open an issue or submit a pull request for imp
 
 ## License
 
-(Choose a license, e.g., MIT, GPL, etc., and state it here. If the project does not have a license yet, consider adding one soon.)
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
