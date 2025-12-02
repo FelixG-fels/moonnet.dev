@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 80" width="280" height="80">
+  <defs>
+    <linearGradient id="moonGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D4AF37"/>
+      <stop offset="100%" stop-color="#F0C856"/>
+    </linearGradient>
+  </defs>
+  <!-- Moon crescent icon -->
+  <g transform="translate(10, 10)">
+    <circle cx="30" cy="30" r="28" fill="url(#moonGradient)"/>
+    <circle cx="42" cy="22" r="22" fill="#0A1F44"/>
+  </g>
+  <!-- Wordmark: MoonNet -->
+  <text x="80" y="52" font-family="Montserrat, 'Segoe UI', Arial, sans-serif" font-size="32" font-weight="700" fill="#0A1F44">Moon</text>
+  <text x="168" y="52" font-family="Montserrat, 'Segoe UI', Arial, sans-serif" font-size="32" font-weight="700" fill="#D4AF37">Net</text>
+</svg>

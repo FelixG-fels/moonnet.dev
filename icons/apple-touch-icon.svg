@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" width="180" height="180">
+  <defs>
+    <linearGradient id="moonGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D4AF37"/>
+      <stop offset="100%" stop-color="#F0C856"/>
+    </linearGradient>
+  </defs>
+  <!-- Navy background for iOS -->
+  <rect width="180" height="180" fill="#082a4b"/>
+  <!-- Moon crescent centered with padding -->
+  <g transform="translate(30, 30)">
+    <circle cx="60" cy="60" r="55" fill="url(#moonGradient)"/>
+    <circle cx="82" cy="44" r="44" fill="#082a4b"/>
+  </g>
+</svg>
