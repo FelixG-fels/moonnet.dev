@@ -1,0 +1,12 @@
+# Generated icon assets (build output)
+icons/generated/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE/Editor files
+.idea/
+.vscode/
+*.swp
+*.swo
