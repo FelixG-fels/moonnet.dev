@@ -344,34 +344,3 @@ a:focus,button:focus{ outline:3px solid rgba(212,175,55,0.18); outline-offset:3p
   section{ page-break-inside:avoid }
   .cta-primary, .demo-button{ border:1px solid var(--navy) }
 }
-
-/* Hero Section */
-.hero {
-    background: linear-gradient(135deg, var(--navy) 0%, #0F2E5C 100%);
-    color: var(--white);
-    padding: 4rem 2rem;
-    text-align: center;
-    min-height: 600px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.hero h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    line-height: 1.2;
-    display: block; /* ensure headings are visible when not hidden */
-}
-
-.hero .subheading {
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
-    color: var(--gold);
-    display: block; /* ensure subheadings are visible when not hidden */
-}
-
-.hero .cta-primary {
-    display: inline-block; /* ensure buttons are visible when not hidden */
-}
