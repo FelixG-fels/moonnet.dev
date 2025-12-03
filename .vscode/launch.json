@@ -5,30 +5,20 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Launch Chrome",
-            "request": "launch",
-            "type": "chrome",
-            "url": "http://localhost:8080",
-            "webRoot": "${workspaceFolder}"
-        },
-        {
-            "type": "chrome",
-            "request": "launch",
             "name": "Open index.html (Chrome)",
-            "file": "${workspaceFolder}/index.html"
+            "type": "chrome",
+            "request": "launch",
+            "file": "${workspaceFolder}/index.html",
+            "console": "internalConsole",
+            "internalConsoleOptions": "neverOpen"
         },
         {
-            "name": "Launch Edge",
-            "request": "launch",
-            "type": "msedge",
-            "url": "http://localhost:8080",
-            "webRoot": "${workspaceFolder}"
-        },
-        {
-            "type": "msedge",
-            "request": "launch",
             "name": "Open index.html (Edge)",
-            "file": "${workspaceFolder}/index.html"
+            "type": "msedge",
+            "request": "launch",
+            "file": "${workspaceFolder}/index.html",
+            "console": "internalConsole",
+            "internalConsoleOptions": "neverOpen"
         }
     ]
 }
