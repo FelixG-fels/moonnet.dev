@@ -8,17 +8,13 @@
             "name": "Open index.html (Chrome)",
             "type": "chrome",
             "request": "launch",
-            "file": "${workspaceFolder}/index.html",
-            "console": "internalConsole",
-            "internalConsoleOptions": "neverOpen"
+            "file": "${workspaceFolder}/index.html"
         },
         {
             "name": "Open index.html (Edge)",
             "type": "msedge",
             "request": "launch",
-            "file": "${workspaceFolder}/index.html",
-            "console": "internalConsole",
-            "internalConsoleOptions": "neverOpen"
+            "file": "${workspaceFolder}/index.html"
         }
     ]
 }
