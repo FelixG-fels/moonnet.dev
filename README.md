@@ -94,6 +94,31 @@ This site is configured to use `moonnet.dev` as the custom domain. If you purcha
 
 ### Troubleshooting
 
+#### DNS_PROBE_FINISHED_NXDOMAIN Error
+
+If you see this error when visiting moonnet.dev, it means DNS records are not configured at your domain registrar. Follow these steps:
+
+1. **Verify DNS records are set**: Log into your domain registrar (e.g., Namecheap) and ensure all A records and CNAME records are configured as shown in Step 3 above.
+
+2. **Check DNS propagation**: Use [whatsmydns.net](https://www.whatsmydns.net/#A/moonnet.dev) to verify your A records are propagating globally.
+
+3. **Test from command line**:
+   ```bash
+   # Check if A records are configured
+   dig moonnet.dev +short
+   # Should return: 185.199.108.153, 185.199.109.153, etc.
+   
+   # Check CNAME for www subdomain
+   dig www.moonnet.dev +short
+   # Should return: felixg-fels.github.io
+   ```
+
+4. **Verify in GitHub**: Go to repository **Settings** → **Pages** and check if there are any DNS verification warnings.
+
+5. **Try the default GitHub URL**: While waiting for DNS, your site should be accessible at: https://felixg-fels.github.io/moonnet.dev
+
+#### Other Common Issues
+
 - **Site not loading**: Wait for DNS propagation (can take up to 48 hours)
 - **HTTPS not working**: Ensure "Enforce HTTPS" is enabled in GitHub Pages settings after DNS is verified
 - **404 errors**: Check that the `CNAME` file exists in your repository root (this repository already includes it with the content `moonnet.dev`). If missing, GitHub automatically creates it when you enter your custom domain in the Pages settings
