@@ -1,37 +1,37 @@
 # moonnet.dev
 
-moonnet.dev is a software project managed in this GitHub repository. Its goal, architecture, and feature set may be specified by future contributors or are described below if available. If you are viewing this README, it is likely the starting point for understanding and contributing to the project.
+Moonnet DevOps is a bilingual AI automation company based in the UAE, specializing in AI-powered chatbots, booking systems, and CRM integrations for businesses in the region.
+
+This repository contains the static landing page for [moonnet.dev](https://moonnet.dev), deployed via GitHub Pages.
 
 ## Table of Contents
 
 - [Introduction](#introduction)
 - [Features](#features)
 - [Getting Started](#getting-started)
-- [Installation](#installation)
-- [Usage](#usage)
+- [Custom Domain Setup](#custom-domain-setup)
 - [Contributing](#contributing)
 - [License](#license)
 
 ## Introduction
 
-moonnet.dev is a project maintained by [FelixG-fels](https://github.com/FelixG-fels). This README is a work in progress, so please update with specifics about the aims, technologies used, and how this project serves its users or solves a particular problem.
+This project is the official website for Moonnet DevOps, maintained by [FelixG-fels](https://github.com/FelixG-fels). The site showcases our bilingual AI automation services designed specifically for UAE businesses.
 
 ## Features
 
-- List your features here (to be filled out by maintainers)
-  - Example: Easy setup and deployment
-  - Example: Modular architecture
+- **Bilingual Support**: Full English and Arabic language support
+- **Responsive Design**: Mobile-first design that works on all devices
+- **GitHub Pages Hosting**: Free, reliable hosting via GitHub Pages
+- **Custom Domain**: Configured for moonnet.dev domain
 
 ## Getting Started
-
-These instructions will help you set up moonnet.dev on your local machine for development and testing purposes.
 
 ### Prerequisites
 
 - [Git](https://git-scm.com/)
-- (List other prerequisites, e.g., Node.js, Python, etc.)
+- A web browser for local preview
 
-### Installation
+### Local Development
 
 1. **Clone the repository:**
    ```sh
@@ -39,12 +39,74 @@ These instructions will help you set up moonnet.dev on your local machine for de
    cd moonnet.dev
    ```
 
-2. **Install dependencies:**
-   (add instructions based on language/platform, e.g., `npm install`, `pip install -r requirements.txt`)
+2. **Open locally:**
+   Simply open `index.html` in your browser to preview the site.
 
-### Usage
+3. **Deploy:**
+   Push changes to the `main` branch and GitHub Actions will automatically deploy to GitHub Pages.
 
-(Add usage examples here, e.g., how to run the software, command line options, web URLs, etc.)
+## Custom Domain Setup
+
+This site is configured to use `moonnet.dev` as the custom domain. If you purchased the domain from Namecheap (or any other registrar), follow these steps to connect it:
+
+### Step 1: Enable GitHub Pages
+
+1. Go to your repository on GitHub
+2. Navigate to **Settings** → **Pages**
+3. Under **Source**, select **GitHub Actions**
+4. The site should deploy automatically via the existing workflow
+
+### Step 2: Configure Custom Domain in GitHub
+
+1. In **Settings** → **Pages**, scroll to **Custom domain**
+2. Enter `moonnet.dev` and click **Save**
+3. Check the box for **Enforce HTTPS** (recommended)
+
+### Step 3: Configure DNS at Namecheap
+
+1. Log in to your [Namecheap account](https://www.namecheap.com/)
+2. Go to **Domain List** → Select `moonnet.dev` → **Manage**
+3. Navigate to the **Advanced DNS** tab
+4. Remove any existing A or CNAME records for the root domain
+5. Add the following **A Records** (for apex domain `moonnet.dev`):
+
+   | Type | Host | Value | TTL |
+   |------|------|-------|-----|
+   | A Record | @ | 185.199.108.153 | Automatic |
+   | A Record | @ | 185.199.109.153 | Automatic |
+   | A Record | @ | 185.199.110.153 | Automatic |
+   | A Record | @ | 185.199.111.153 | Automatic |
+
+6. Add a **CNAME Record** for the `www` subdomain:
+
+   | Type | Host | Value | TTL |
+   |------|------|-------|-----|
+   | CNAME Record | www | FelixG-fels.github.io. | Automatic |
+
+   > **Note**: The CNAME value should be your GitHub username followed by `.github.io` (without the repository name). GitHub handles routing to the correct repository based on the CNAME file.
+
+### Step 4: Verify Configuration
+
+1. DNS changes can take up to 24-48 hours to propagate (usually much faster)
+2. You can check propagation at [whatsmydns.net](https://www.whatsmydns.net/)
+3. Once propagated, visit `https://moonnet.dev` to see your site
+4. GitHub will automatically provision an SSL certificate for HTTPS
+
+### Troubleshooting
+
+- **Site not loading**: Wait for DNS propagation (can take up to 48 hours)
+- **HTTPS not working**: Ensure "Enforce HTTPS" is enabled in GitHub Pages settings after DNS is verified
+- **404 errors**: Check that the `CNAME` file exists in your repository root (this repository already includes it with the content `moonnet.dev`). If missing, GitHub automatically creates it when you enter your custom domain in the Pages settings
+
+### DNS Records Summary
+
+GitHub Pages requires these IP addresses for apex domains:
+- `185.199.108.153`
+- `185.199.109.153`
+- `185.199.110.153`
+- `185.199.111.153`
+
+For more details, see [GitHub's official documentation on custom domains](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site).
 
 ## Contributing
 
